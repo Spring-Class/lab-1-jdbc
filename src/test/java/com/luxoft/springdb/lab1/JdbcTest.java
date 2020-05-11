@@ -30,7 +30,6 @@ public class JdbcTest{
     @Before
     public void setUp() throws Exception {
         initExpectedCountryLists();
-        countryDao.loadCountries();
     }
 
     
@@ -51,6 +50,7 @@ public class JdbcTest{
         List<Country> countryList = countryDao.getCountryListStartWith("A");
         assertNotNull(countryList);
         assertEquals(expectedCountryListStartsWithA.size(), countryList.size());
+        System.out.println(expectedCountryListStartsWithA.size());
         for (int i = 0; i < expectedCountryListStartsWithA.size(); i++) {
             assertEquals(expectedCountryListStartsWithA.get(i), countryList.get(i));
         }
